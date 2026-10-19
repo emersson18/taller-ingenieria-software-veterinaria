@@ -17,6 +17,6 @@ test_16_reprogramacion_valida (test_agendamiento.PruebasAgendamiento.test_16_rep
 test_17_reprogramacion_conflictiva_no_cambia_cita (test_agendamiento.PruebasAgendamiento.test_17_reprogramacion_conflictiva_no_cambia_cita) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.361s
+Ran 17 tests in 0.377s
 
 OK

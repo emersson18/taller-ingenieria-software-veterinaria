@@ -9,14 +9,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from contextlib import contextmanager
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import sqlite3
 from typing import Callable, Iterator
-from zoneinfo import ZoneInfo
 
 
-ZONA = ZoneInfo("America/Bogota")
+# Colombia usa UTC-05:00 y no aplica horario de verano. Usar un offset fijo
+# evita depender de tzdata, que no siempre viene instalado en Windows.
+ZONA = timezone(timedelta(hours=-5), "America/Bogota")
 ESTADOS_FINALES = {"Cancelada", "Inasistencia", "Completada"}
 TRANSICIONES = {
     "Programada": {"Confirmada", "Cancelada"},
