@@ -42,6 +42,10 @@ La primera ejecución también reveló una limitación de permisos del directori
 
 Al ejecutar las pruebas con Python 3.15 instalado en Windows apareció otro problema de entorno: no estaba instalada la base `tzdata`, requerida por `ZoneInfo("America/Bogota")` en algunas instalaciones de Windows. Se sustituyó por el offset fijo `UTC-05:00` de Colombia, que no aplica horario de verano, tanto en el módulo como en las pruebas. Las 17 pruebas se volvieron a ejecutar con ese Python y aprobaron.
 
+### Demostración en navegador
+
+Se agregó `web_local.py`, una interfaz web local en español para registrar citas, ver el listado y aplicar transiciones de estado permitidas. Se ejecuta con `python web_local.py` y se abre en `http://127.0.0.1:8000`. Usa catálogos simulados y la base persistente `citas_web.sqlite`; no incluye autenticación real ni integración con módulos maestros. La interfaz no se ha verificado en los tres navegadores ni con pruebas de carga.
+
 ### Límites de la evidencia
 
 Las pruebas verifican reglas funcionales con datos maestros simulados. No prueban todavía una interfaz web, integración real de autenticación, 10 usuarios concurrentes, rendimiento con el volumen de la guía ni una carrera paralela real entre dos procesos. Para afirmar esos requisitos como verificados se requiere integrar los módulos y añadir pruebas de carga y concurrencia.
@@ -124,14 +128,14 @@ Fecha: [COMPLETAR]
 
 ### Introducción y solución
 
-El proyecto propone un sistema web para gestionar propietarios, mascotas, servicios, profesionales, horarios y citas veterinarias. Se documentó una descomposición modular y se implementó únicamente el núcleo de Agendamiento de citas. El módulo aplica reglas de reserva, cancelación, reprogramación y transición de estados, y conserva las citas en SQLite.
+El proyecto propone un sistema web para gestionar propietarios, mascotas, servicios, profesionales, horarios y citas veterinarias. Se documentó una descomposición modular y se implementó únicamente el núcleo de Agendamiento de citas, junto con una interfaz web de demostración local. El módulo aplica reglas de reserva, cancelación, reprogramación y transición de estados, y conserva las citas en SQLite.
 
 ### Contenido que debe integrarse al informe
 
 1. Análisis de requisitos, validaciones y supuestos.
 2. Propuesta modular, interfaces, dependencias y justificación de cohesión/acoplamiento.
 3. Selección del módulo Agendamiento y delimitación de alcance.
-4. Explicación de implementación y decisiones técnicas.
+4. Explicación de implementación y decisiones técnicas, incluida la demostración web local.
 5. Tabla de 17 casos, resultados, evidencia y defecto corregido.
 6. Análisis de SC-01, SC-02 y SC-03 y sus regresiones propuestas.
 7. Uso de Git y herramienta de IA, prompts y ajustes.
@@ -139,11 +143,12 @@ El proyecto propone un sistema web para gestionar propietarios, mascotas, servic
 
 ### Conclusiones
 
-La separación modular permite concentrar las reglas de citas sin hacer que Agendamiento administre los datos maestros. Las pruebas automatizadas aprobaron los casos ejecutados y detectaron un problema de confirmación de transacciones que fue corregido. La solución es un núcleo funcional del módulo, no una aplicación web completa: quedan por integrar una interfaz, autorización real, proveedores de datos maestros, pruebas de concurrencia paralela y pruebas de rendimiento.
+La separación modular permite concentrar las reglas de citas sin hacer que Agendamiento administre los datos maestros. Las pruebas automatizadas aprobaron los casos ejecutados y detectaron un problema de confirmación de transacciones que fue corregido. La interfaz web local permite registrar y consultar citas de demostración; para completar la solución se deben integrar autorización real, proveedores de datos maestros, pruebas de concurrencia paralela y pruebas de rendimiento.
 
 ### Anexos y entrega
 
 - Código: `agendamiento.py`.
+- Interfaz local: `web_local.py`.
 - Pruebas: `test_agendamiento.py`.
 - Evidencia de ejecución: `evidencia_pruebas.txt`.
 - Repositorio: [PEGAR ENLACE].
