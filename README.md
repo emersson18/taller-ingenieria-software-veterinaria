@@ -11,6 +11,7 @@ Núcleo de reglas de negocio para reservar, cancelar, reprogramar, consultar y c
 
 - `agendamiento.py`: módulo funcional.
 - `test_agendamiento.py`: 17 pruebas automatizadas.
+- `demo_local.py`: demostración interactiva por consola con SQLite persistente.
 - `evidencia_pruebas.txt`: salida de la última ejecución.
 - `documentacion_notion.md`: secciones 5 a 9 listas para copiar a Notion.
 
@@ -21,6 +22,16 @@ Desde esta carpeta:
 ```bash
 python -m unittest -v
 ```
+
+## Ver una cita registrarse
+
+Desde esta carpeta, ejecuta:
+
+```bash
+python demo_local.py
+```
+
+El programa registra una cita de demostración, muestra su identificador y enumera las citas guardadas. La base persistente se crea como `demostracion.sqlite` en esta carpeta y está excluida de Git. Cada ejecución agrega otra cita en un día libre.
 
 ## Integración
 
