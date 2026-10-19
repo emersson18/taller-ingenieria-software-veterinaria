@@ -1,0 +1,22 @@
+test_01_reserva_valida (test_agendamiento.PruebasAgendamiento.test_01_reserva_valida) ... ok
+test_02_rechaza_menos_de_dos_horas (test_agendamiento.PruebasAgendamiento.test_02_rechaza_menos_de_dos_horas) ... ok
+test_03_rechaza_mascota_de_propietario_inactivo (test_agendamiento.PruebasAgendamiento.test_03_rechaza_mascota_de_propietario_inactivo) ... ok
+test_04_rechaza_servicio_inactivo (test_agendamiento.PruebasAgendamiento.test_04_rechaza_servicio_inactivo) ... ok
+test_05_rechaza_profesional_inactivo (test_agendamiento.PruebasAgendamiento.test_05_rechaza_profesional_inactivo) ... ok
+test_06_rechaza_horario_fuera_de_atencion (test_agendamiento.PruebasAgendamiento.test_06_rechaza_horario_fuera_de_atencion) ... ok
+test_07_rechaza_solapamiento (test_agendamiento.PruebasAgendamiento.test_07_rechaza_solapamiento) ... ok
+test_08_permite_citas_contiguas (test_agendamiento.PruebasAgendamiento.test_08_permite_citas_contiguas) ... ok
+test_09_rechaza_cuarta_cita_diaria (test_agendamiento.PruebasAgendamiento.test_09_rechaza_cuarta_cita_diaria) ... ok
+test_10_cancelar_libera_el_horario (test_agendamiento.PruebasAgendamiento.test_10_cancelar_libera_el_horario) ... ok
+test_11_cancelacion_con_menos_de_cuatro_horas_se_rechaza (test_agendamiento.PruebasAgendamiento.test_11_cancelacion_con_menos_de_cuatro_horas_se_rechaza) ... ok
+test_12_cancelacion_exactamente_con_cuatro_horas_se_acepta (test_agendamiento.PruebasAgendamiento.test_12_cancelacion_exactamente_con_cuatro_horas_se_acepta) ... ok
+test_13_transiciones_validas_y_estado_final (test_agendamiento.PruebasAgendamiento.test_13_transiciones_validas_y_estado_final) ... ok
+test_14_transicion_no_permitida_se_rechaza (test_agendamiento.PruebasAgendamiento.test_14_transicion_no_permitida_se_rechaza) ... ok
+test_15_permiso_denegado_no_crea_cita (test_agendamiento.PruebasAgendamiento.test_15_permiso_denegado_no_crea_cita) ... ok
+test_16_reprogramacion_valida (test_agendamiento.PruebasAgendamiento.test_16_reprogramacion_valida) ... ok
+test_17_reprogramacion_conflictiva_no_cambia_cita (test_agendamiento.PruebasAgendamiento.test_17_reprogramacion_conflictiva_no_cambia_cita) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.361s
+
+OK
