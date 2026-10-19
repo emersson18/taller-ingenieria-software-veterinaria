@@ -12,6 +12,7 @@ Núcleo de reglas de negocio para reservar, cancelar, reprogramar, consultar y c
 - `agendamiento.py`: módulo funcional.
 - `test_agendamiento.py`: 17 pruebas automatizadas.
 - `demo_local.py`: demostración interactiva por consola con SQLite persistente.
+- `web_local.py`: formulario web en español para registrar citas y cambiar su estado.
 - `evidencia_pruebas.txt`: salida de la última ejecución.
 - `documentacion_notion.md`: secciones 5 a 9 listas para copiar a Notion.
 
@@ -32,6 +33,16 @@ python demo_local.py
 ```
 
 El programa registra una cita de demostración, muestra su identificador y enumera las citas guardadas. La base persistente se crea como `demostracion.sqlite` en esta carpeta y está excluida de Git. Cada ejecución agrega otra cita en un día libre.
+
+## Abrir el entorno web local
+
+Desde esta carpeta, ejecuta:
+
+```bash
+python web_local.py
+```
+
+Abre `http://127.0.0.1:8000` en el navegador. El formulario usa catálogos de ejemplo y guarda en `citas_web.sqlite`, excluido de Git. Detén el servidor con `Ctrl+C` en la terminal. Es una demostración educativa local: no incluye autenticación real ni debe exponerse a internet.
 
 ## Integración
 
