@@ -1,13 +1,12 @@
 import tempfile
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 from agendamiento import Agendamiento, ErrorDeCita, Mascota, Profesional, Servicio
 
 
-ZONA = ZoneInfo("America/Bogota")
+ZONA = timezone(timedelta(hours=-5), "America/Bogota")
 
 
 class PruebasAgendamiento(unittest.TestCase):

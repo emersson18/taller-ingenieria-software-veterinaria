@@ -8,6 +8,7 @@
 - Herramienta: `unittest` de la biblioteca estándar de Python.
 - Comando: `python -m unittest -v` (ejecutado con Python del runtime de Codex).
 - Resultado: 17 pruebas ejecutadas; 17 aprobadas.
+- Entorno de verificación adicional: Python 3.15 de Windows.
 - Evidencia de consola: `evidencia_pruebas.txt`.
 - Datos: SQLite temporal por prueba; hora fija simulada para que las reglas de tiempo sean reproducibles; datos maestros simulados mediante funciones proveedoras.
 
@@ -38,6 +39,8 @@
 En la primera ejecución, varias pruebas mostraron que las citas insertadas no estaban disponibles al abrir una conexión nueva. La causa fue que el nuevo administrador de conexiones cerraba SQLite sin confirmar la transacción abierta. Se ajustó el administrador para confirmar cuando la operación termina correctamente y revertir cuando ocurre una excepción. En la reejecución final, las 17 pruebas aprobaron.
 
 La primera ejecución también reveló una limitación de permisos del directorio temporal predeterminado del entorno Windows. El fixture se cambió para crear su SQLite temporal junto a las pruebas y limpiarlo al terminar. Es un ajuste del entorno de pruebas, no un defecto funcional del módulo.
+
+Al ejecutar las pruebas con Python 3.15 instalado en Windows apareció otro problema de entorno: no estaba instalada la base `tzdata`, requerida por `ZoneInfo("America/Bogota")` en algunas instalaciones de Windows. Se sustituyó por el offset fijo `UTC-05:00` de Colombia, que no aplica horario de verano, tanto en el módulo como en las pruebas. Las 17 pruebas se volvieron a ejecutar con ese Python y aprobaron.
 
 ### Límites de la evidencia
 
